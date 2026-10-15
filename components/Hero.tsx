@@ -1,39 +1,11 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import { Phone, MessageSquare, Instagram, Play, Pause, Volume2, VolumeX, Maximize2, Shield, Heart, Clock, Sparkles } from 'lucide-react';
+import React from 'react';
+import { Phone, MessageSquare, Instagram, Shield, Heart, Clock, Sparkles } from 'lucide-react';
 import { SALON_INFO } from '@/lib/data';
 import Logo from '@/components/Logo';
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !videoRef.current.muted;
-    setIsMuted(videoRef.current.muted);
-  };
-
-  const handleFullscreen = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.requestFullscreen) {
-      videoRef.current.requestFullscreen();
-    }
-  };
-
   return (
     <section className="relative overflow-hidden bg-stone-950 text-stone-100 py-12 lg:py-16">
       
@@ -42,7 +14,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         
-        {/* 2-Column Split: Headline + Info on Left, danielVideo.mp4 on Right */}
+        {/* 2-Column Split: Headline + Info on Left, salon video on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Column: Brand, Headline, Team & Actions */}
@@ -125,84 +97,17 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Column: danielVideo.mp4 Video Player */}
+          {/* Right Column: Salon video player */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-3xl overflow-hidden border-2 border-amber-500/30 bg-stone-900 shadow-2xl group">
-              
-              {/* Video Player */}
-              <div className="relative aspect-video w-full bg-stone-950">
-                <video
-                  ref={videoRef}
-                  src="/videos/danielVideo.mp4"
-                  autoPlay
-                  loop
-                  muted={isMuted}
-                  playsInline
-                  controls={false}
-                  className="w-full h-full object-cover object-center"
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                />
-
-                {/* Video Watermark / Title Badge */}
-                <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-lg bg-black/75 backdrop-blur-md text-amber-300 font-mono text-xs font-bold border border-amber-500/40 shadow">
-                    danielVideo.mp4
-                  </span>
-                  <span className="px-2.5 py-1 rounded-lg bg-stone-900/80 backdrop-blur-md text-stone-200 text-xs font-medium">
-                    Терапија во тек
-                  </span>
-                </div>
-
-                {/* Video Controls Overlay */}
-                <div className="absolute bottom-3 left-3 right-3 z-10 p-2.5 rounded-xl bg-stone-950/85 backdrop-blur-md border border-stone-800 flex items-center justify-between gap-3 text-xs">
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={togglePlay}
-                      className="p-2 rounded-lg bg-amber-400 text-stone-950 hover:bg-amber-300 font-bold transition-transform active:scale-95"
-                      title={isPlaying ? 'Паузирај' : 'Пушти'}
-                    >
-                      {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                    </button>
-
-                    <button
-                      onClick={toggleMute}
-                      className="p-2 rounded-lg bg-stone-800 text-stone-200 hover:bg-stone-700 transition-colors"
-                      title={isMuted ? 'Вклучи звук' : 'Исклучи звук'}
-                    >
-                      {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-amber-400" />}
-                    </button>
-
-                    <span className="text-[11px] text-stone-300 font-medium hidden sm:inline">
-                      Длабоко-ткивна масажа од Даниел
-                    </span>
-                  </div>
-
-                  <button
-                    onClick={handleFullscreen}
-                    className="p-2 rounded-lg bg-stone-800 text-stone-200 hover:bg-stone-700 transition-colors"
-                    title="Цел екран"
-                  >
-                    <Maximize2 className="w-4 h-4" />
-                  </button>
-                </div>
-
-              </div>
-
-              {/* Sub-strip below video */}
-              <div className="p-3.5 bg-stone-950 border-t border-stone-800/80 flex items-center justify-between text-xs text-stone-400">
-                <span className="flex items-center gap-1.5 text-amber-300 font-medium">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Вистинска видео снимка од сесија во салонот</span>
-                </span>
-                <a
-                  href="#video-tour"
-                  className="text-stone-300 hover:text-amber-200 underline font-semibold"
-                >
-                  Погледни го видеото ↓
-                </a>
-              </div>
-
+            <div className="overflow-hidden rounded-3xl border-2 border-amber-500/30 bg-stone-900 shadow-2xl">
+              <video
+                src="/video_of_the_massage_sallon.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="block aspect-video w-full object-cover object-center"
+              />
             </div>
           </div>
 
