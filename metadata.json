@@ -1,0 +1,6 @@
+{
+  "name": "СОНИТА МАСАЖА - Даниел & Софија",
+  "description": "Салон за масажа СОНИТА МАСАЖА со сертифициран тим Даниел & Софија. Длабоко-ткивна масажа, тригер точки, релакс со етерични масла, кавитација. Видео од Даниел (danielVideo.mp4). Телефон: 078 377 387, Instagram: @sonitamassage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
