@@ -26,7 +26,7 @@ export default function HomePage() {
         {/* Services Showcase (No Prices, Pure Authentic Treatments) */}
         <ServicesGallery />
 
-        {/* Authentic Video & Ambience Tour */}
+        {/* Massage video */}
         <StudioVideoShowcase />
 
         {/* 6 Health Benefits from Medical Poster */}

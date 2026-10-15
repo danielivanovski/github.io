@@ -36,7 +36,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#video-tour" className="hover:text-amber-200 transition-colors">
-                  Видео & Амбиент
+                  Видео
                 </a>
               </li>
               <li>

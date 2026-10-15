@@ -199,7 +199,7 @@ export default function Hero() {
                   href="#video-tour"
                   className="text-stone-300 hover:text-amber-200 underline font-semibold"
                 >
-                  Погледни повеќе видеа ↓
+                  Погледни го видеото ↓
                 </a>
               </div>
 

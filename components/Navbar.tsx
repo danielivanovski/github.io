@@ -30,7 +30,7 @@ export default function Navbar() {
             Услуги
           </a>
           <a href="#video-tour" className="hover:text-amber-200 transition-colors whitespace-nowrap shrink-0">
-            Видеа & Амбиент
+            Видео
           </a>
           <a href="#benefits" className="hover:text-amber-200 transition-colors whitespace-nowrap shrink-0">
             Придобивки
@@ -107,7 +107,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="p-2 rounded hover:bg-stone-800 text-amber-100"
             >
-              Видеа & Амбиент
+              Видео
             </a>
             <a
               href="#benefits"
