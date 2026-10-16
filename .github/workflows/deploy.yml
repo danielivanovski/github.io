@@ -37,18 +37,10 @@ jobs:
       - name: Build Next.js
         run: npx next build
 
-      - name: Fix root index for GitHub Pages
-        run: |
-          mkdir -p pages_dist
-          # Копирај го твојот standalone.html или index.html како главен index.html во роутот што се качува
-          cp public/standalone.html pages_dist/index.html || cp public/index.html pages_dist/index.html
-          # Копирај ги и потребните asset фајлови ако се потребни
-          cp -r .next pages_dist/ 2>/dev/null || true
-
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: pages_dist
+          path: out
 
 
   deploy:
