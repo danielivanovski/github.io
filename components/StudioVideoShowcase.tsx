@@ -1,9 +1,11 @@
+import { getAssetPath } from '@/lib/utils';
+
 export default function StudioVideoShowcase() {
   return (
     <section id="video-tour" className="border-t border-stone-800/80 bg-stone-950 py-12 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <video
-          src="/example_of_massage_by_sofia.mp4"
+          src={getAssetPath('/example_of_massage_by_sofia.mp4')}
           controls
           playsInline
           preload="metadata"

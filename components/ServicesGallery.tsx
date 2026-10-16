@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Clock, Check, Phone, MessageSquare, Sparkles } from 'lucide-react';
 import { SERVICES, SALON_INFO } from '@/lib/data';
+import { getAssetPath } from '@/lib/utils';
 
 export default function ServicesGallery() {
   const [filter, setFilter] = useState<'all' | 'therapeutic' | 'relax' | 'aesthetic' | 'beauty'>('all');
@@ -105,7 +106,7 @@ export default function ServicesGallery() {
                 {/* Image Header */}
                 <div className="relative h-56 w-full overflow-hidden bg-stone-900">
                   <Image
-                    src={service.image}
+                    src={getAssetPath(service.image)}
                     alt={service.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

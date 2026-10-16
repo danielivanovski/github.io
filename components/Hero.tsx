@@ -4,6 +4,7 @@ import React from 'react';
 import { Phone, MessageSquare, Instagram, Shield, Heart, Clock, Sparkles } from 'lucide-react';
 import { SALON_INFO } from '@/lib/data';
 import Logo from '@/components/Logo';
+import { getAssetPath } from '@/lib/utils';
 
 export default function Hero() {
   return (
@@ -101,7 +102,7 @@ export default function Hero() {
           <div className="lg:col-span-6">
             <div className="overflow-hidden rounded-3xl border-2 border-amber-500/30 bg-stone-900 shadow-2xl">
               <video
-                src="/video_of_the_massage_sallon.mp4"
+                src={getAssetPath('/video_of_the_massage_sallon.mp4')}
                 autoPlay
                 loop
                 muted

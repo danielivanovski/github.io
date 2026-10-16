@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Award, Check, Phone, MessageSquare } from "lucide-react";
 import { SALON_INFO, THERAPISTS } from "@/lib/data";
+import { getAssetPath } from "@/lib/utils";
 
 export default function TeamSection() {
   return (
@@ -17,7 +18,7 @@ export default function TeamSection() {
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border-2 border-stone-800 shadow-2xl bg-stone-900 group">
               <Image
-                src="/images/viber_image_2026-10-15_12-41-46-019.jpg"
+                src={getAssetPath("/images/viber_image_2026-10-15_12-41-46-019.jpg")}
                 alt="Сертифициран тим Даниел & Софија - СОНИТА МАСАЖА"
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"

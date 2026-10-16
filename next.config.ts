@@ -1,5 +1,16 @@
 import type {NextConfig} from 'next';
 
+// Support GitHub Pages repository subpath (e.g. /github.io)
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+let basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+if (!basePath && isGithubActions && process.env.GITHUB_REPOSITORY) {
+  const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
+  if (repo && owner && repo.toLowerCase() !== `${owner.toLowerCase()}.github.io`) {
+    basePath = `/${repo}`;
+  }
+}
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   eslint: {
@@ -10,6 +21,12 @@ const nextConfig: NextConfig = {
   },
   // Static export for GitHub Pages compatibility (generates out/ folder)
   output: 'export',
+  trailingSlash: true,
+  basePath: basePath || undefined,
+  assetPrefix: basePath || undefined,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
