@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: '#0c0a09',
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -23,9 +27,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="mk" className="scroll-smooth">
-      <head>
-        <meta name="theme-color" content="#0c0a09" />
-      </head>
       <body className="bg-stone-950 text-stone-100 antialiased min-h-screen">
         {children}
       </body>
