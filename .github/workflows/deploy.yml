@@ -30,18 +30,18 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
 
-      - name: Build Next.js
-        run: npx next build
+      - name: Build Next.js Static Export
+        run: npm run build
+        env:
+          NODE_ENV: production
 
-
-      - name: Build Next.js
-        run: npx next build
+      - name: Ensure .nojekyll exists
+        run: touch out/.nojekyll
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
-
+          path: ./out
 
   deploy:
     environment:

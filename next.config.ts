@@ -8,8 +8,10 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  // Allow access to remote image placeholder.
+  // Static export for GitHub Pages compatibility (generates out/ folder)
+  output: 'export',
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -19,7 +21,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: 'standalone',
  
   transpilePackages: ['motion'],
   webpack: (config, {dev}) => {
