@@ -33,6 +33,12 @@ jobs:
       - name: Build Next.js
         run: npx next build
 
+      - name: Copy standalone as root index.html
+        run: |
+          cp public/standalone.html .next/index.html
+          # Или ако имаш index.html во public:
+          # cp public/index.html .next/index.html
+
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
